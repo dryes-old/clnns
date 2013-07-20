@@ -51,14 +51,12 @@ def init_argparse(config):
     args = parser.parse_args()
     args = vars(args)
 
-    args['query'] = ' '.join(args['query'])
-
     for h in config['hosts']:
          firsthost = h
          break
 
     if len(args['query']) > 0:
-        args['query'] = '&q=' + str(args['query'])
+        args['query'] = '&q=' + ' '.join(args['query'])
 
     if len(args['category']) > 0:
         args['category'] = '&cat=' + str(args['category'])
