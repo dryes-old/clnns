@@ -51,6 +51,8 @@ def init_argparse(config):
     args = parser.parse_args()
     args = vars(args)
 
+    args['query'] = ' '.join(args['query'])
+
     for h in config['hosts']:
          firsthost = h
          break
@@ -116,8 +118,8 @@ def main(args):
     print('Searching on: %s ..' % args['provider'][0], end='')
 
     try:
-        url = '%s/api?t=search%s&apikey=%s%s%s%s%s' % (args['provider'][0], args['category'], args['provider'][1], args['query'], args['limit'], args['maxage'], args['offset'])
-        apiresponse = feedparser.parse(url.replace('//api?t', '/api?t'))
+        url = '%s/api?t=search%s&apikey=%s%s%s%s%s' % (args['provider'][0], args['category'], args['provider'][1], args['limit'], args['maxage'], args['offset'], args['query'])
+        apiresponse = feedparser.parse(url.replace('//api?t', '/api?t').replace(' ', '%20'))
     except:
         if len(str(sys.exc_info()[1])) > 0:
             print(sys.exc_info()[1])
