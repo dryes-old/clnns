@@ -3,6 +3,10 @@ clnns
 
 clnns searches newznab providers on the command line.
 
+* configurable for multiple newznab hosts.
+* 'send to SABnzbd+' functionality.
+* pronounced 'coolness'.
+
 ## dependencies:
 * Python3
 * [feedparser][feedparser]
