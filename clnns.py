@@ -171,7 +171,7 @@ def main(args):
     print('. ' + str(results) + ' results.\n')
 
     if args['first'] == True:
-        if args['download'] == False and args['sabnzbd_nzbkey'] is not None:
+        if args['download'] == False and args['sabnzbd_url'] is not None:
             if sendtosab(apiresponse.entries[0]['link'], apiresponse.entries[0]['title'], args['sabnzbd_url'], args['sabnzbd_nzbkey'], args['sabnzbd_priority']) == False:
                 return False
         else:
@@ -204,7 +204,7 @@ def main(args):
     for i in get:
          if i > results:
              continue
-         if args['download'] == False and args['sabnzbd_nzbkey'] is not None:
+         if args['download'] == False and args['sabnzbd_url'] is not None:
             if sendtosab(apiresponse.entries[i]['link'], apiresponse.entries[i]['title'], args['sabnzbd_url'], args['sabnzbd_nzbkey'], args['sabnzbd_priority']) == False:
                 return False
          else:
